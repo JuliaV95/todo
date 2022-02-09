@@ -1,22 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import styled from "styled-components";
+import Header from "./components/header/header";
+import ToDoInput from "./components/toDoInput/toDoInput";
+import "./scss/main.scss";
+import { ItemList } from "./components/list/list";
+
+const ListWrapper = styled.div`
+  flex: 1 1 auto;
+`;
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [taskText, setTaskText] = useState('Text')
+  const [tasks, setTasks] = useState([]);
+  const deleteItem = (id) => {
+    setTasks(tasks.filter((item) => item.id !== id));
+  };
 
-  function increment() {
-    setCount(count + 1)
-  }
-  function decrement() {
-    setCount(count - 1)
-  }
+  const handlerAddTask = (newTask) => {
+    const updatedTasks = [...tasks, newTask];
+    setTasks(updatedTasks);
+    console.log(updatedTasks);
+  };
+
+  const handleCheck = (id) => {
+    setTasks(tasks.map((item) => (item.id === id) ? {
+      id: item.id,
+      description : item.description,
+      done : !item.done,
+    } : item));
+  };
+
   return (
-    <div className="App">
-      <h1>{count}</h1>
-      <h1>{taskText}</h1>
-      <input type='text' value={taskText}/>
-      <button onClick={increment}>Add</button>
-      <button onClick={decrement}>Remove</button>
+    <div className="form">
+      <Header tasksAmount={tasks.length} tasksRemain={tasks.filter(item => !item.done).length}/>
+      <ListWrapper>
+        <ItemList tasks={tasks} deleteItem={deleteItem} handleCheck={handleCheck}/>
+      </ListWrapper>
+      <ToDoInput addTask={handlerAddTask} />
     </div>
   );
 }

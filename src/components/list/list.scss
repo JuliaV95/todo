@@ -1,0 +1,10 @@
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    &-checkbox:checked + label {
+        text-decoration: line-through;
+    }
+}
+
