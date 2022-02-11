@@ -23,8 +23,7 @@ function App() {
 
   const handleCheck = (id) => {
     setTasks(tasks.map((item) => (item.id === id) ? {
-      id: item.id,
-      description : item.description,
+      ...item,
       done : !item.done,
     } : item));
   };
