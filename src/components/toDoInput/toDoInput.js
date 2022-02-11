@@ -7,7 +7,9 @@ const ToDoInput = function ({ addTask }) {
   const [value, setValue] = useState("");
 
   const handleAddTask = () => {
-    addTask({ id: uuidv4(), description: value, done: false });
+    if (value) {
+      addTask({ id: uuidv4(), description: value, done: false });
+    }
     setValue("");
   };
 
