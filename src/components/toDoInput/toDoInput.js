@@ -7,9 +7,7 @@ const ToDoInput = function ({ addTask }) {
   const [value, setValue] = useState("");
 
   const handleAddTask = () => {
-    if (value) {
-      addTask({ id: uuidv4(), description: value, done: false });
-    }
+    addTask({ id: uuidv4(), description: value, done: false });
     setValue("");
   };
 
@@ -28,7 +26,7 @@ const ToDoInput = function ({ addTask }) {
         onChange={(e) => setValue(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <Button onClick={handleAddTask}>Add</Button>
+      <Button isActive={Boolean(value)} onClick={handleAddTask}>Add</Button>
     </div>
   );
 };
