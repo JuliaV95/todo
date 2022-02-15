@@ -2,7 +2,10 @@ import React from "react";
 
 const Button = function (props) {
   return (
-    <button className="btn" onClick={props.onClick}>
+    <button  
+      className={`btn ${props.isActive ? 'active' : ''}`}
+      onClick={props.onClick}
+    >
       {props.children}
     </button>
   );
