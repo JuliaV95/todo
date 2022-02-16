@@ -10,9 +10,9 @@ export const ItemList = ({tasks, deleteItem, handleCheck}) => {
                     className='list-group-item'
                     key={item.id}
                 >
-                    <div>
-                        <input className='list-group-item-checkbox' type="checkbox" defaultChecked={item.done} onChange={() => handleCheck(item.id)}></input>
-                        <label className='description'>{item.description}</label>
+                    <div className='checkbox-group'>
+                        <input className='list-group-item-checkbox' type="checkbox" defaultChecked={item.completed} onChange={() => handleCheck(item.id)}></input>
+                        <label>{item.title}</label>
                     </div>
                     <Button onClick={() => deleteItem(item.id)}>Delete</Button>
                 </li>  

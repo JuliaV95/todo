@@ -7,6 +7,8 @@ import { ItemList } from "./components/list/list";
 
 const ListWrapper = styled.div`
   flex: 1 1 auto;
+  overflow-y: auto;
+  margin-bottom: 20px;
 `;
 
 function App() {
@@ -24,13 +26,13 @@ function App() {
   const handleCheck = (id) => {
     setTasks(tasks.map((item) => (item.id === id) ? {
       ...item,
-      done : !item.done,
+      completed : !item.completed,
     } : item));
   };
 
   return (
     <div className="form">
-      <Header tasksAmount={tasks.length} tasksRemain={tasks.filter(item => !item.done).length}/>
+      <Header tasksAmount={tasks.length} tasksRemain={tasks.filter(item => !item.completed).length}/>
       <ListWrapper>
         <ItemList tasks={tasks} deleteItem={deleteItem} handleCheck={handleCheck}/>
       </ListWrapper>

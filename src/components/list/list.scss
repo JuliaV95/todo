@@ -10,5 +10,15 @@
 
 .list-group {
     height: 80%;
-    overflow-y: auto;
+    
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    word-break: break-all;
+    width: calc(100% - 72px);
+    label {
+        flex: 0 1 90%; 
+    }
 }
