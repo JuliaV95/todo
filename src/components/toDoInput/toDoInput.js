@@ -12,7 +12,7 @@ const ToDoInput = function ({ addTask }) {
   };
 
   const handleKeyDown = (event) => {
-    if (event.keyCode === ENTER_KEY_CODE) {
+    if (event.keyCode === ENTER_KEY_CODE && value) {
       handleAddTask();
     }
   };
