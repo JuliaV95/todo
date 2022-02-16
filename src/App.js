@@ -7,7 +7,7 @@ import { ItemList } from "./components/list/list";
 
 const ListWrapper = styled.div`
   flex: 1 1 auto;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin-bottom: 20px;
 `;
 
