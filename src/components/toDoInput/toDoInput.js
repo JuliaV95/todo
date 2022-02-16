@@ -26,7 +26,7 @@ const ToDoInput = function ({ addTask }) {
         onChange={(e) => setValue(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <Button onClick={handleAddTask}>Add</Button>
+      <Button isActive={Boolean(value)} onClick={handleAddTask}>Add</Button>
     </div>
   );
 };
